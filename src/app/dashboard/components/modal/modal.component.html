@@ -1,0 +1,53 @@
+
+<div class="content">
+
+  <div class="module">
+      <div class="module-head">
+          <h3>Update User</h3>
+          <div align="right" >
+              <a class="btn btn-xs btn-inverse" (click)="onNoClick()">Back</a>
+          </div>
+      </div>
+      <div class="module-body">
+         <form class="form-horizontal row-fluid"  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+              <div class="control-group">
+                  <label class="control-label" for="basicinput">Name</label>
+                  <div class="controls">
+                      <input type="text"  name="name" [(ngModel)]="users_obj.name" formControlName="name"   placeholder="Type something here..." class="span8"  [ngClass]="{ 'is-invalid': Is_submitted && ValidateFields.name.errors }" >
+                      <div *ngIf="Is_submitted && ValidateFields.name.errors" class="invalid-feedback">
+                        <div *ngIf="ValidateFields.name.errors.required">Name is required</div>
+                    </div>   
+                  </div>
+              </div>
+
+              <div class="control-group">
+                  <label class="control-label" for="basicinput">Username</label>
+                  <div class="controls">
+                      <input type="text"  name="username" [(ngModel)]="users_obj.username" formControlName="username"   placeholder="Type something here..."  class="span8" [ngClass]="{ 'is-invalid': Is_submitted && ValidateFields.username.errors }">
+                      <div *ngIf="Is_submitted && ValidateFields.username.errors" class="invalid-feedback">
+                        <div *ngIf="ValidateFields.username.errors.required">UserName is required</div>
+                    </div> 
+                  </div>
+              </div>
+              <div class="control-group">
+                  <label class="control-label" for="basicinput">Website</label>
+                  <div class="controls">
+                      <input type="text"  name="website" [(ngModel)]="users_obj.website" formControlName="website"   placeholder="Type something here..."  class="span8" [ngClass]="{ 'is-invalid': Is_submitted && ValidateFields.website.errors }">
+                      <div *ngIf="Is_submitted && ValidateFields.website.errors" class="invalid-feedback">
+                        <div *ngIf="ValidateFields.website.errors.required">website is required</div>
+                    </div> 
+                  </div>
+              </div>
+   
+           <div class="control-group">
+                  <label class="control-label" for="basicinput"></label>
+                  <button type="submit" class="btn btn-small btn-info" >Submit</button>
+                  <div class="controls">
+                  </div>
+              </div>
+          </form>
+
+      </div>
+
+  </div>
+</div>

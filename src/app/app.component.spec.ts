@@ -1,12 +1,23 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import {RenderComponent} from './login-layout/render/render.component';
+import { MainlayoutComponent } from './form-layout/mainlayout/mainlayout.component';
+import {AuthGuard} from './auth.guard';
+import { Routes, RouterModule } from '@angular/router';
+import { APP_BASE_HREF } from '@angular/common';
 
 describe('AppComponent', () => {
+  const routes: Routes = [
+    {path : '', component : RenderComponent, loadChildren : './auth/auth.module#AuthModule'},
+    {path : 'dashboard', canActivate : [AuthGuard], component : MainlayoutComponent, loadChildren : './dashboard/dashboard.module#DashboardModule'},
+ ];
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        RouterModule.forRoot(routes)
+
       ],
       declarations: [
         AppComponent

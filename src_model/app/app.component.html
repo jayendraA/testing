@@ -1,0 +1,16 @@
+<div>
+  <ol>
+    <li>
+      <mat-form-field>
+        <input matInput [(ngModel)]="name" placeholder="What's your name?">
+      </mat-form-field>
+    </li>
+    <li>
+      <button mat-raised-button (click)="openDialog()">Pick one</button>
+    </li>
+    <br />
+    <li *ngIf="animal">
+      You chose: <p style="font-weight: bold">{{animal}}</p>
+    </li>
+  </ol>
+</div>

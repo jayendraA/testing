@@ -1,0 +1,51 @@
+<div class="content">
+
+    <div class="module">
+        <div class="module-head">
+            <h3>User Listing</h3>
+            <ul>
+              <li *ngFor="let city of cities_obj$ | async">
+                  Name: {{ city.name }},
+                  Population: {{ city.population }},
+                  Elevation: {{ city.elevation }}</li>
+            </ul>
+            <!-- <span *ngIf="(word$ | async)?.length > 9; else shortWord">
+              Long word: {{ word$.value }}
+            </span> -->
+         </div>
+     <input type="text" class="form-control" placeholder="Search" [(ngModel)]="query" id="listSearch">
+        <div class="module-body">
+            <table class="table table-striped table-bordered table-condensed">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Username</th>
+                  <th>Website</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr  *ngFor="let user of userdata_arr |LockFilter: query ">
+                  <td>{{user.id}}</td>
+                  <td>{{user.name}}</td>
+                  <td>{{user.username}}</td>
+                  <td>{{user.website}}</td>
+                  <td><button mat-button (click)="openDialog(user.id)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-button (click)="delete(user.id)">
+                  <mat-icon>delete</mat-icon>
+              </button>
+          </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+    </div>
+
+ 
+<br />
+    
+</div><!--/.content-->
+
