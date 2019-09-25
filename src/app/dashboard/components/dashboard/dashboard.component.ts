@@ -21,6 +21,7 @@ import { tick } from '@angular/core/testing';
 })
 export class DashboardComponent implements OnInit,OnDestroy {
   message:string
+
   constructor(private data: DataService,public dashboard_service:DashboardService,public dialog: MatDialog) { }
   
   email:string;
